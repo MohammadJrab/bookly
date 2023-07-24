@@ -18,8 +18,13 @@ abstract class Styles {
   );
 
   static const textStyle20 = TextStyle(
-      fontSize: 20, fontWeight: FontWeight.normal, fontFamily: KGtSectraFine);
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+  );
 
   static const textStyle30 = TextStyle(
-      fontSize: 30, fontWeight: FontWeight.normal, fontFamily: KGtSectraFine);
+    fontSize: 30,
+    fontWeight: FontWeight.normal,
+    fontFamily: KGtSectraFine,
+  );
 }
