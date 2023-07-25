@@ -1,5 +1,5 @@
+import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
@@ -39,7 +39,7 @@ class BestSellerListViewItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    'Harry Potter and the Goblet of Fire Goblet of Fire Goblet of Fire',
+                    'Harry Potter and the Goblet of Fire',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style:
@@ -72,34 +72,6 @@ class BestSellerListViewItem extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(
-          FontAwesomeIcons.solidStar,
-          color: Color(0xffFFDD4F),
-        ),
-        const SizedBox(width: 6.3),
-        const Text(
-          '4.8',
-          style: Styles.textStyle16,
-        ),
-        const SizedBox(
-          width: 5,
-        ),
-        Text(
-          '(2390)',
-          style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),
-        )
-      ],
     );
   }
 }
