@@ -1,4 +1,6 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -7,16 +9,21 @@ class FeaturedListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7 / 4,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.red,
-          image: const DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(
-              AssetsData.testImage2,
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kDetailsBookView);
+      },
+      child: AspectRatio(
+        aspectRatio: 2.7 / 4,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.red,
+            image: const DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(
+                AssetsData.testImage2,
+              ),
             ),
           ),
         ),
