@@ -6,3 +6,4 @@ const Duration kTransitionDuration = Duration(milliseconds: 250);
 
 const String kGtSectraFine = 'GT-Sectra-Fine-Regular';
 const String kFeaturedBox = 'featured_box';
+const String kNewestBox = 'newest_box';
