@@ -5,9 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'newest_books_state.dart';
 
-class NewestBooksCubitCubit extends Cubit<NewestBooksCubitState> {
-  NewestBooksCubitCubit(this.fetchNewestBooksUseCase)
-      : super(NewestBooksInitial());
+class NewestBooksCubit extends Cubit<NewestBooksCubitState> {
+  NewestBooksCubit(this.fetchNewestBooksUseCase) : super(NewestBooksInitial());
   final FetchNewestBooksUseCase fetchNewestBooksUseCase;
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
