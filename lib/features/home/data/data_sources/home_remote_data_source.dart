@@ -18,7 +18,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     var data = await apiService.get(
         endPoint:
-            'volumes?q=programming&Filtering=free-ebooks&startIndex=${pageNumber * 10}');
+            'volumes?q=flutter&Filtering=free-ebooks&startIndex=${pageNumber * 10}');
     List<BookEntity> books = getBooksList(data);
 
     saveBooksData(books, kFeaturedBox);
