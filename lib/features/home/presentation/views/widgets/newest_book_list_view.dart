@@ -1,22 +1,23 @@
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
-import 'package:bookly/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
+import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'custom_book_item.dart';
+import 'best_seller_list_view_item.dart';
 
-class FeaturedBooksListView extends StatefulWidget {
-  const FeaturedBooksListView({super.key, required this.books});
+class NewestBooksListView extends StatefulWidget {
+  const NewestBooksListView({super.key, required this.books});
   final List<BookEntity> books;
 
   @override
-  State<StatefulWidget> createState() => _FeaturedBooksListViewState();
+  State<NewestBooksListView> createState() => _NewestBooksListViewState();
 }
 
-class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
+class _NewestBooksListViewState extends State<NewestBooksListView> {
   late final ScrollController _scrollController;
   var nextPage = 1;
   var isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -38,8 +39,8 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
     if (scrollPercentage > 70) {
       if (!isLoading) {
         isLoading = true;
-        BlocProvider.of<FeaturedBooksCubit>(context)
-            .fetchFeaturedBooks(pageNumber: nextPage++);
+        BlocProvider.of<NewestBooksCubit>(context)
+            .fetchNewestBooks(pageNumber: nextPage++);
         isLoading = false;
       }
     }
@@ -47,21 +48,19 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .26,
-      child: ListView.builder(
-        controller: _scrollController,
-        itemCount: widget.books.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: CustomBookImage(
-              book: widget.books[index],
-            ),
-          );
-        },
-      ),
+    return ListView.builder(
+      controller: _scrollController,
+      itemCount: widget.books.length,
+      // physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: BookListViewItem(
+            books: widget.books[index],
+          ),
+        );
+      },
     );
   }
 }

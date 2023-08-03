@@ -13,6 +13,14 @@ class NewestBooksSuccess extends NewestBooksCubitState {
   NewestBooksSuccess(this.books);
 }
 
+class NewestBooksPaginationLoading extends NewestBooksCubitState {}
+
+class NewestBooksPaginationFailure extends NewestBooksCubitState {
+  final String errorMessage;
+
+  NewestBooksPaginationFailure(this.errorMessage);
+}
+
 class NewestBooksFailure extends NewestBooksCubitState {
   final String errMessage;
 

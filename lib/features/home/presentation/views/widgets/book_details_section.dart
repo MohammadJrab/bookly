@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -6,8 +7,8 @@ import 'book_rating.dart';
 import 'custom_book_item.dart';
 
 class BookDetialsSection extends StatelessWidget {
-  const BookDetialsSection({super.key});
-
+  const BookDetialsSection({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -16,13 +17,13 @@ class BookDetialsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .2),
-          child: const CustomBookImage(
-            image: '',
+          child: CustomBookImage(
+            book: book,
           ),
         ),
         const SizedBox(height: 46),
         Text(
-          'The Jungle Book',
+          book.title,
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.bold,
           ),
@@ -33,7 +34,7 @@ class BookDetialsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'Rudyard Kipling',
+            book.autherName ?? 'No Name',
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
@@ -43,13 +44,15 @@ class BookDetialsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
+        BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
+          count: 2894,
+          rating: book.rating ?? 4.5,
         ),
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+        const BooksAction(price: 'Free'),
       ],
     );
   }

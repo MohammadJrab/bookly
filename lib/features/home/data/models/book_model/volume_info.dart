@@ -16,6 +16,8 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
+  int? ratingsCount;
+
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -39,6 +41,7 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -72,6 +75,7 @@ class VolumeInfo {
         categories: (json['categories'] as List<dynamic>?)
             ?.map((categories) => categories.toString())
             .toList(),
+        ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,

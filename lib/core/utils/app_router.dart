@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/details_book_view.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/search/presentation/view/search_view.dart';
@@ -39,7 +40,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) {
           return CustomTransitionPage(
             key: state.pageKey,
-            child: const DetialsBookView(),
+            child: DetialsBookView(book: state.extra as BookEntity),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(
