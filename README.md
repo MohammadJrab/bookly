@@ -1,8 +1,7 @@
-# bookly
+# bookly App
 
-A new Flutter project.
+Bookly App with Clean Architecture.
 
-## Getting Started
 
 This project is a starting point for a Flutter application.
 
