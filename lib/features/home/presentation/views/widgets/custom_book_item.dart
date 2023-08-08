@@ -6,8 +6,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key, required this.book});
+class CustomBookItem extends StatelessWidget {
+  const CustomBookItem({super.key, required this.book});
 
   final BookEntity book;
   @override
